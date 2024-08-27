@@ -1,0 +1,261 @@
+body {
+  font-family: "Montserrat";
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat-Bold";
+}
+
+.gradient-background {
+  background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172,rgb(212, 30, 124),rgb(56, 56, 220));
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.icon-square {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+}
+
+.profile-img {
+  border-radius: 50%;
+  height: 100px;
+}
+
+/* Navigation Bar */
+.container{
+  padding: 0px;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: "Montserrat-Light";
+}
+
+.nav-align{
+    padding-bottom: 0px;
+    padding-top: 40px;
+    padding-left: 85px;
+    padding-right: 85px;
+}
+
+/* Title Section */
+
+#title {
+  background-color: #ff4c68;
+  color: #fff;
+  text-align: left;
+}
+
+#title .container-fluid {
+  padding: 3% 15% 7%;
+}
+
+
+/* Testimonial Section */
+
+
+.testimonial-image {
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+.big-heading {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+
+
+
+/* Footer Section */
+.foot{
+  /* padding: 2.5rem; */
+  font-size: 4rem;
+  text-align: center;
+  /* margin-inline: 100px; */
+  color: #fff;
+  line-height: 1.5;
+}
+
+.social-icon {
+  margin: 20px 10px;
+}
+
+.container-fluid{
+  padding: 50px 30px;
+}
+
+@media (max-width: 1028px) {
+
+  #title {
+    text-align: center;
+  }
+
+  .title-image {
+    position: static;
+    transform: rotate(0);
+  }
+}
+
+
+/* CONTACT - FORM */
+
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap");
+
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+:root {
+    --bgOrange: red;
+}
+
+.contactus-form-container {
+    width: 100%;
+    background-color: rgb(231, 231, 231);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    padding: 2rem; 
+    margin-top: 0; 
+  }
+  
+ 
+  .contactus-heading {
+    font-size: 5em;
+    color: red; 
+    text-align: center;
+    margin: 0; 
+    padding-top: 0;
+  }
+  
+  .contactus-sub-heading {
+    font-size: 3rem;
+    color: #343d68aa;
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0;
+  }
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 70%;
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
+.formfield-container {
+    width: 100%;
+}
+
+.formfield {
+    width: 100%;
+    height: 42px;
+    padding: 0 2rem;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px #1f1f1f;
+    font-weight: 500;
+    border: none;
+    margin-top: 27px;
+}
+
+.formfield-textarea {
+    height: auto;
+    padding-top: 1rem;
+}
+
+#submit-btn {
+    border: none;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+}
+
+#submit-btn:hover {
+    transform: scale(0.9);
+}
+
+.submit-icon {
+    padding: 0 1rem;
+    font-size: 1.5rem;
+}
+
+.button-container {
+    display: flex;
+    gap: 1rem; 
+    justify-content: center; 
+}
+
+.contactButton {
+    background: #7079f0;
+    color: white;
+    font-family: inherit;
+    padding: 0.45em;
+    padding-left: 1em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3em;
+}
+
+.iconButton {
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #7a8cf3;
+    right: 0.3em;
+    transition: all 0.3s;
+}
+
+.contactButton:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em #5566c2;
+}
+
+.contactButton:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em #5566c2;
+}
