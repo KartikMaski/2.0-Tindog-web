@@ -275,40 +275,39 @@
 
   <div class="contact-form">
     <div class="contactus-form-container" id="contactme">
-      <div class="container">
-        <h1 class="contactus-heading">Contact Us</h1>
-        <h3 class="contactus-sub-heading">
-          Questions, thoughts, or just want to say hello?
-        </h3>
-        <div class="form-container">
-          <form class="form" name="contactForm" action="" onsubmit="return validateForm()">
-            <div class="formfield-container">
-              <input class="formfield" type="text" name="name" placeholder="Enter your name" required />
-              <input class="formfield" type="email" name="email" placeholder="Enter your email address" required />
-              <input class="formfield" type="text" name="subject" placeholder="Enter your subject" required />
-              <textarea name="message" class="formfield formfield-textarea" placeholder="Enter your message" required></textarea>
-              <div id="wordCount">Word count: 0/250</div> <!-- Word count display -->
+        <div class="container">
+            <h1 class="contactus-heading">Contact Us</h1>
+            <h3 class="contactus-sub-heading">
+                Questions, thoughts, or just want to say hello?
+            </h3>
+            <div class="form-container">
+                <form class="form" name="contactForm">
+                    <div class="formfield-container">
+                        <input class="formfield" type="text" name="name" placeholder="Enter your name" required />
+                        <input class="formfield" type="email" name="email" placeholder="Enter your email address" required />
+                        <input class="formfield" type="text" name="subject" placeholder="Enter your subject" required />
+                        <textarea name="message" class="formfield formfield-textarea" placeholder="Enter your message" required></textarea>
+                        <div id="wordCount">Word count: 0/250</div> <!-- Word count display -->
+                    </div>
+                    <div class="button-container">
+                        <button class="contactButton" type="submit">
+                            Contact
+                            <div class="iconButton">
+                                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="button-container">
-              <button class="contactButton" type="submit">
-                Contact
-                <div class="iconButton">
-                  <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
-                  </svg>
-                </div>
-              </button>
-            </div>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
-  
-  <!-- Link to the external JavaScript file -->
-  <script src="formValidation.js"></script>
-  
+</div>
+
+<!-- Link to the external JavaScript file -->
+<script src="formValidation.js"></script>
 
   <footer class="white-section my-5" id="footer">
     <div class="container-fluid">
