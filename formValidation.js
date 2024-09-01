@@ -50,7 +50,7 @@ loadjQuery(function() {
 
         return true;
     }
-
+    
     // Update word count display function
     function updateWordCount() {
         const message = $("textarea[name='message']").val();
