@@ -1,46 +1,28 @@
-// Function to load jQuery dynamically
+// Load jQuery dynamically if not already loaded
 function loadjQuery(callback) {
     if (window.jQuery) {
-        // jQuery is already loaded
-        if (callback) callback();
+        callback?.();
     } else {
-        // Create a script element to load jQuery
-        var script = document.createElement('script');
+        const script = document.createElement('script');
         script.src = "https://code.jquery.com/jquery-3.6.4.min.js";
         script.integrity = "sha384-oP6Yo9J8TIDGvLU4X9XxlEACrd6U3B9S8Vw4Ve1w2XJ8c3Vj8p5cfjpZqekPpM6x9";
         script.crossOrigin = "anonymous";
-        script.onload = function() {
-            if (callback) callback();
-        };
+        script.onload = callback;
         document.head.appendChild(script);
     }
 }
 
-// Load jQuery and execute code
-loadjQuery(function() {
-    // Validate form function
+loadjQuery(() => {
     function validateForm() {
-        const name = document.forms["contactForm"]["name"].value;
-        const email = document.forms["contactForm"]["email"].value;
-        const subject = document.forms["contactForm"]["subject"].value;
-        const message = document.forms["contactForm"]["message"].value;
+        const form = document.forms["contactForm"];
+        const name = form["name"].value.trim();
+        const email = form["email"].value.trim();
+        const subject = form["subject"].value.trim();
+        const message = form["message"].value.trim();
+        const wordCount = message.split(/\s+/).length;
 
-        const wordCount = message.trim().split(/\s+/).length; // Updated to handle multiple spaces
-        
-        if (name === "") {
-            alert("Name must be filled out");
-            return false;
-        }
-        if (email === "") {
-            alert("Email must be filled out");
-            return false;
-        }
-        if (subject === "") {
-            alert("Subject must be filled out");
-            return false;
-        }
-        if (message === "") {
-            alert("Message must be filled out");
+        if (!name || !email || !subject || !message) {
+            alert("All fields must be filled out");
             return false;
         }
         if (wordCount > 250) {
@@ -50,30 +32,18 @@ loadjQuery(function() {
 
         return true;
     }
-    
-    // Update word count display function
+
     function updateWordCount() {
-        const message = $("textarea[name='message']").val();
-        const wordCount = message.trim().split(/\s+/).length; // Updated to handle multiple spaces
-
-        $("#wordCount").text(`Word count: ${wordCount}/250`);
-
-        if (wordCount > 250) {
-            $("#wordCount").css("color", "red");
-        } else {
-            $("#wordCount").css("color", "black");
-        }
+        const message = $("textarea[name='message']").val().trim();
+        const wordCount = message.split(/\s+/).length;
+        $("#wordCount").text(`Word count: ${wordCount}/250`)
+                       .css("color", wordCount > 250 ? "red" : "black");
     }
 
-    // Attach event listener to the message textarea
     $(document).ready(function() {
         $("textarea[name='message']").on("input", updateWordCount);
-
-        // Handle form submission
         $("form[name='contactForm']").on("submit", function(event) {
-            if (!validateForm()) {
-                event.preventDefault(); // Prevent form submission if validation fails
-            }
+            if (!validateForm()) event.preventDefault();
         });
     });
 });
