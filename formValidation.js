@@ -1,18 +1,17 @@
-// Load jQuery dynamically if not already loaded
-function loadjQuery(callback) {
+function loadjQueryAndSetupForm() {
     if (window.jQuery) {
-        callback?.();
+        setupFormValidationAndHandlers();
     } else {
         const script = document.createElement('script');
         script.src = "https://code.jquery.com/jquery-3.6.4.min.js";
         script.integrity = "sha384-oP6Yo9J8TIDGvLU4X9XxlEACrd6U3B9S8Vw4Ve1w2XJ8c3Vj8p5cfjpZqekPpM6x9";
         script.crossOrigin = "anonymous";
-        script.onload = callback;
+        script.onload = setupFormValidationAndHandlers;
         document.head.appendChild(script);
     }
 }
 
-loadjQuery(() => {
+function setupFormValidationAndHandlers() {
     function validateForm() {
         const form = document.forms["contactForm"];
         const name = form["name"].value.trim();
@@ -36,8 +35,7 @@ loadjQuery(() => {
     function updateWordCount() {
         const message = $("textarea[name='message']").val().trim();
         const wordCount = message.split(/\s+/).length;
-        $("#wordCount").text(`Word count: ${wordCount}/250`)
-                       .css("color", wordCount > 250 ? "red" : "black");
+        $("#wordCount").text(`Word count: ${wordCount}/250`).css("color", wordCount > 250 ? "red" : "black");
     }
 
     $(document).ready(function() {
@@ -46,4 +44,7 @@ loadjQuery(() => {
             if (!validateForm()) event.preventDefault();
         });
     });
-});
+}
+
+// Call the function to load jQuery and set up form handlers
+loadjQueryAndSetupForm();
