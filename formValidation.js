@@ -1,17 +1,46 @@
 function loadjQueryAndSetupForm() {
     if (window.jQuery) {
-        setupFormValidationAndHandlers();
+        formValidators();
+        setupAdditionalJQueryOperations();
     } else {
         const script = document.createElement('script');
         script.src = "https://code.jquery.com/jquery-3.6.4.min.js";
         script.integrity = "sha384-oP6Yo9J8TIDGvLU4X9XxlEACrd6U3B9S8Vw4Ve1w2XJ8c3Vj8p5cfjpZqekPpM6x9";
         script.crossOrigin = "anonymous";
-        script.onload = setupFormValidationAndHandlers;
+        script.onload = function() {
+            formValidators();
+            setupAdditionalJQueryOperations();
+        };
         document.head.appendChild(script);
     }
 }
 
-function setupFormValidationAndHandlers() {
+function changeBackgroundColor() {
+    const containerDiv = document.getElementById('contactme');
+    const currentColor = containerDiv.style.backgroundColor;
+
+    if (currentColor === 'rgb(240, 248, 255)' || currentColor === '') {
+        containerDiv.style.backgroundColor = "#ffebcd";
+    } else {
+        containerDiv.style.backgroundColor = "#f0f8ff";
+    }
+}
+
+function changeImage() {
+    const containerDiv = document.getElementById('contactme');
+    const currentImage = containerDiv.style.backgroundImage;
+
+    if (currentImage.includes("Everest_North_Face")) {
+        containerDiv.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Mt._Everest_as_seen_from_Drukair2_PLW_edit.jpg/800px-Mt._Everest_as_seen_from_Drukair2_PLW_edit.jpg')";
+        $("#setBackgroundImageButton").text("Revert Image");
+    } else {
+        containerDiv.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg/660px-Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg')";
+        $("#setBackgroundImageButton").text("Change Image");
+    }
+}
+
+
+function formValidators() {
     function validateForm() {
         const form = document.forms["contactForm"];
         const name = form["name"].value.trim();
@@ -46,5 +75,29 @@ function setupFormValidationAndHandlers() {
     });
 }
 
-// Call the function to load jQuery and set up form handlers
+function setupAdditionalJQueryOperations() {
+    $(document).ready(function() {
+        $("#changeBackgroundButton").click(function() {
+            $(this).text(function(_, text) {
+                return text === "Change Background Color" ? "Revert Background Color" : "Change Background Color";
+            });
+            changeBackgroundColor();
+        });
+
+        $("#setBackgroundImageButton").click(function() {
+            changeImage();
+        });
+
+        $("#submitButton").click(function() {
+            let name = $("input[name='name']").val();
+            let email = $("input[name='email']").val();
+            let subject = $("input[name='subject']").val();
+            let message = $("textarea[name='message']").val();
+            alert(`Name: ${name}, Email: ${email}, Subject: ${subject}, Message: ${message}`);
+        });
+
+        $("form[name='contactForm']").attr("data-submitted", "true");
+    });
+}
+
 loadjQueryAndSetupForm();

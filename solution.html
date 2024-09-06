@@ -287,7 +287,7 @@
                         <input class="formfield" type="email" name="email" placeholder="Enter your email address" required />
                         <input class="formfield" type="text" name="subject" placeholder="Enter your subject" required />
                         <textarea name="message" class="formfield formfield-textarea" placeholder="Enter your message" required></textarea>
-                        <div id="wordCount">Word count: 0/250</div> <!-- Word count display -->
+                        <div id="wordCount">Word count: 0/250</div>
                     </div>
                     <div class="button-container">
                         <button class="contactButton" type="submit">
@@ -301,12 +301,34 @@
                         </button>
                     </div>
                 </form>
+                <div class="button-container">
+                    <button class="contactButton my-3" type="button" id="changeBackgroundButton">
+                        Change Background Color
+                        <div class="iconButton">
+                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+                <div class="button-container">
+                    <button class="contactButton" type="button" id="setBackgroundImageButton">
+                        Change Image
+                        <div class="iconButton">
+                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Link to the external JavaScript file -->
+
 <script src="formValidation.js"></script>
 
   <footer class="white-section my-5" id="footer">
